@@ -45,7 +45,7 @@ def upload_data():
 		else:
 			msg = msg + "N/A" + '\t'
 
-    publish.single(Conf.MQTT_topic, msg, hostname=Conf.MQTT_broker, port = Conf.MQTT_port)
+	publish.single(Conf.MQTT_topic, msg, hostname=Conf.MQTT_broker, port = Conf.MQTT_port)
 
 
 	try:

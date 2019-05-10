@@ -9,7 +9,7 @@ import pyupm_i2clcd as upmLCD
 MQTT_broker = 'gpssensor.ddns.net'
 MQTT_port = 1883
 MQTT_topic = 'LASS/Test/PM25/live'
-MQTT_interval = 60			# interval between every two MQTT messages (seconds)
+MQTT_interval = 60
 
 Version = "5.2b.1"
 
