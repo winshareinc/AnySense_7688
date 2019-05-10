@@ -5,6 +5,7 @@ chmod 755 /etc/init.d/AnySense
 
 opkg update
 opkg install wget block-mount kmod-fs-ext4 kmod-usb-storage-extras e2fsprogs fdisk
+pip install paho-mqtt
 mkfs.ext4 /dev/mmcblk0p1
 
 block detect > /etc/config/fstab
@@ -14,4 +15,3 @@ python /root/AnySense_7688/AnySense_RTC.py -d 0 -k $1
 crontab /root/AnySense_7688/APP/Temp_Project/RTC_cron
 
 reboot
-

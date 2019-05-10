@@ -6,9 +6,14 @@ import lib.gas_co2_s8 as gas_sensor
 import pyupm_i2clcd as upmLCD
 
 
+MQTT_broker = 'gpssensor.ddns.net'
+MQTT_port = 1883
+MQTT_topic = 'LASS/Test/PM25/live'
+MQTT_interval = 60			# interval between every two MQTT messages (seconds)
+
 Version = "5.2b.1"
 
-Sense_PM = 1                          
+Sense_PM = 1
 Sense_Tmp = 1
 Sense_Light = 1
 Sense_Gas = 1
@@ -40,17 +45,17 @@ import re
 import os
 from multiprocessing import Queue
 
-float_re_pattern = re.compile("^-?\d+\.\d+$")                                                                                               
+float_re_pattern = re.compile("^-?\d+\.\d+$")
 num_re_pattern = re.compile("^-?\d+\.\d+$|^-?\d+$")
 
 mac = open('/sys/class/net/eth0/address').readline().upper().strip()
-DEVICE_ID = mac.replace(':','') 
+DEVICE_ID = mac.replace(':','')
 
 f = os.popen('ifconfig eth0 | grep "inet\ addr" | cut -d: -f2 | cut -d" " -f1')
 DEVICE_IP=f.read()
 if(DEVICE_IP == ''):
         f = os.popen('ifconfig apcli0 | grep "inet\ addr" | cut -d: -f2 | cut -d" " -f1')
-        DEVICE_IP=f.read()    
+        DEVICE_IP=f.read()
 
 
 if Use_RTC_DS3231 == 1:
@@ -67,35 +72,35 @@ if Use_RTC_DS3231 == 1:
 	SecureKey = urllib.quote_plus(SecureKey)
 	print "SecureKey = " , SecureKey
 
-pm_q = Queue(maxsize=5)                                                                                                                     
-tmp_q = Queue(maxsize=5)                                                                                                                     
-light_q = Queue(maxsize=5)                                                                                                                   
-gas_q = Queue(maxsize=5)  
+pm_q = Queue(maxsize=5)
+tmp_q = Queue(maxsize=5)
+light_q = Queue(maxsize=5)
+gas_q = Queue(maxsize=5)
 tvoc_q = Queue(maxsize=5)
 
-fields ={       "Tmp"   :       "s_t0",           
-                "RH"    :       "s_h0",           
-                "PM1.0" :       "s_d2",           
-                "PM2.5" :       "s_d0",           
-                "PM10"  :       "s_d1",              
+fields ={       "Tmp"   :       "s_t0",
+                "RH"    :       "s_h0",
+                "PM1.0" :       "s_d2",
+                "PM2.5" :       "s_d0",
+                "PM10"  :       "s_d1",
                 "Lux"   :       "s_l0",
 		"RGB_R"	:	"s_lr",
 		"RGB_G"	:	"s_lg",
 		"RGB_B"	:	"s_lb",
 		"RGB_C"	:	"s_lc",
-                "CO2"   :       "s_g8",              
+                "CO2"   :       "s_g8",
 		"TVOC"	:	"s_gg",
-        }                                            
-values = {      "app"           :       APP_ID,      
-                "device_id"     :       DEVICE_ID,                  
-                "device"        :       DEVICE,                     
-                "ver_format"    :       3,                        
-                "fmt_opt"       :       0,                        
-                "gps_lat"       :       GPS_LAT,                    
-                "gps_lon"       :       GPS_LON,                    
-                "FAKE_GPS"      :       1,                        
-                "gps_fix"       :       1,                        
-                "gps_num"       :       100,                      
-                "date"          :       "1900-01-01",                        
-                "time"          :       "00:00:00",                          
-        }                       
+        }
+values = {      "app"           :       APP_ID,
+                "device_id"     :       DEVICE_ID,
+                "device"        :       DEVICE,
+                "ver_format"    :       3,
+                "fmt_opt"       :       0,
+                "gps_lat"       :       GPS_LAT,
+                "gps_lon"       :       GPS_LON,
+                "FAKE_GPS"      :       1,
+                "gps_fix"       :       1,
+                "gps_num"       :       100,
+                "date"          :       "1900-01-01",
+                "time"          :       "00:00:00",
+        }

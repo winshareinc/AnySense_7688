@@ -24,7 +24,7 @@ Please login you development board, and change to your working directory. Then, 
 
 1. Use the coommand to get the latest version of the codes: 
    ```
-   git clone https://github.com/cclljj/AnySense_7688
+   git clone https://github.com/winshareinc/AnySense_7688
    ```
 
 2. Install phao library by the command (optional, only needed if you want to use MQTT for data transmission)
@@ -58,7 +58,7 @@ Please login you development board, and change to your working directory. Then, 
 
 ## Applications
 
-The existing applications (so far) are listed on the [wiki](https://github.com/cclljj/AnySense_7688/wiki) page
+The existing applications (so far) are listed on the [wiki](https://github.com/winshareinc/AnySense_7688/wiki) page
 
 ## Acknowledgement
 

@@ -22,7 +22,7 @@ Please login you 7688 board, and change the working directory to /root. Then, pl
 
 1. Use the coommand to get the latest version of the codes: 
    ```
-   git clone https://github.com/cclljj/AnySense_7688
+   git clone https://github.com/winshareinc/AnySense_7688
    ```
 2. update the values of GPS_LAT and GPS_LON with your GPS coordinates in the file /root/AnySense_7688/APP_Harvard_TX_config.py
 
