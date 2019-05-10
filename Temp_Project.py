@@ -38,6 +38,8 @@ def upload_data():
 	restful_str = "wget -O /tmp/last_upload.log \"" + Conf.Restful_URL + "topic=" + Conf.APP_ID + "&device_id=" + Conf.DEVICE_ID + "&key=" + Conf.SecureKey + "&msg=" + msg + "\""
 	os.system(restful_str)
 
+    publish.single(Conf.MQTT_topic, msg, hostname=Conf.MQTT_broker, port = Conf.MQTT_port)
+    
 	msg = ""
 	for item in CSV_items:
 		if item in values:
@@ -45,7 +47,7 @@ def upload_data():
 		else:
 			msg = msg + "N/A" + '\t'
 
-	publish.single(Conf.MQTT_topic, msg, hostname=Conf.MQTT_broker, port = Conf.MQTT_port)
+
 
 
 	try:
