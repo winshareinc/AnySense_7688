@@ -18,21 +18,16 @@ This is the AnySense project for MediaTek LinkIt 7688 board. The project conduct
   * Sensirion SGP30 (I2C)
 * RTC: real time clock
   * DS3231 (I2C)
- 
+
 ## How to run this program?
 Please login you development board, and change to your working directory. Then, please follow the following steps:
 
-1. Use the coommand to get the latest version of the codes: 
+1. Use the coommand to get the latest version of the codes:
    ```
    git clone https://github.com/winshareinc/AnySense_7688
    ```
 
-2. Install phao library by the command (optional, only needed if you want to use MQTT for data transmission)
-   ```
-   pip install paho-mqtt
-   ```
-   
-3. Edit the file AnySense_config.py and change the configureations
+2. Edit the file AnySense_config.py and change the configureations
    * Sense_PM: Enable PM sensor (1) or Not (0)
    * Sense_Tmp: Enable Temperature/Humidity sensor (1) or Not (0)
    * Sense_Light: Enable Light sensor (1) or Not (0)
@@ -48,13 +43,13 @@ Please login you development board, and change to your working directory. Then, 
    * LASS settings: including APP_ID, DEVICE, and DEVICE_ID
    * MQTT settings: including MQTT_broker, MQTT_port, MQTT_topic, and MQTT_interval
    * Restful settings: including Restful_URL and Restful_interval
-   
-4. Run the main program by
+  
+3. Run the main program by
    ```
-   python AnySense.py
+   /root/AnySense_7688/APP/Temp_Project/setup.sh
    ```
 
-5. You can check the results on the console printouts or on the MQTT broker.
+4. You can check the results on the console printouts or on the MQTT broker.
 
 ## Applications
 
