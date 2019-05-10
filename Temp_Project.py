@@ -19,12 +19,12 @@ def upload_data():
 	values["date"] = pairs[0]
 	values["time"] = pairs[1]
 
-	values["tick"] = 0
-	try:
-		with open('/proc/uptime', 'r') as f:
-			values["tick"] = float(f.readline().split()[0])
-	except:
-		print "Error: reading /proc/uptime"
+	# values["tick"] = 0
+	# try:
+	# 	with open('/proc/uptime', 'r') as f:
+	# 		values["tick"] = float(f.readline().split()[0])
+	# except:
+	# 	print "Error: reading /proc/uptime"
 
 	msg = ""
 	for item in values:
@@ -38,6 +38,17 @@ def upload_data():
 	restful_str = "wget -O /tmp/last_upload.log \"" + Conf.Restful_URL + "topic=" + Conf.APP_ID + "&device_id=" + Conf.DEVICE_ID + "&key=" + Conf.SecureKey + "&msg=" + msg + "\""
 	os.system(restful_str)
 
+	#publish
+	push_items = ["ver_format","FAKE_GPS","app","ver_app","device_id","date","time","s_d0","s_d1","s_t0","s_h0","gps_lon","gps_lat"]
+	msg = ""
+	for item in push_items:
+		if item in values:
+			if Conf.num_re_pattern.match(str(values[item])):
+				msg = msg + "|" + item + "=" + str(values[item]) + ""
+			else:
+				tq = values[item]
+				tq = tq.replace('"','')
+				msg = msg + "|" + item + "=" + tq
 	publish.single(Conf.MQTT_topic, msg, hostname=Conf.MQTT_broker, port = Conf.MQTT_port)
 
 	msg = ""
@@ -161,7 +172,7 @@ if __name__ == '__main__':
 
 	values["s_d0"] = 0
 	values["s_d1"] = 0
-	values["s_d2"] = 0
+
 	values["s_t0"] = 0
 	values["s_h0"] = 0
 	values["s_lr"] = -1

@@ -11,7 +11,7 @@ MQTT_port = 1883
 MQTT_topic = 'LASS/Test/PM25/live'
 MQTT_interval = 60
 
-Version = "5.2b.1"
+Version = "live"
 
 Sense_PM = 1
 Sense_Tmp = 1
@@ -23,7 +23,7 @@ Sense_TVOC = 1
 
 GPS_LAT = 25.1933
 GPS_LON = 121.7870
-APP_ID = "IAQ_SPECIAL"
+APP_ID = "PM25"
 DEVICE = "LinkIt_Smart_7688"
 DEVICE_ID = "DEVICE_ID1234"
 DEVICE_IP = ''
@@ -49,7 +49,7 @@ float_re_pattern = re.compile("^-?\d+\.\d+$")
 num_re_pattern = re.compile("^-?\d+\.\d+$|^-?\d+$")
 
 mac = open('/sys/class/net/eth0/address').readline().upper().strip()
-DEVICE_ID = mac.replace(':','')
+DEVICE_ID = "FT_LIVE" + mac.replace(':','')[:8]
 
 f = os.popen('ifconfig eth0 | grep "inet\ addr" | cut -d: -f2 | cut -d" " -f1')
 DEVICE_IP=f.read()
@@ -93,14 +93,14 @@ fields ={       "Tmp"   :       "s_t0",
         }
 values = {      "app"           :       APP_ID,
                 "device_id"     :       DEVICE_ID,
-                "device"        :       DEVICE,
+                # "device"        :       DEVICE,
                 "ver_format"    :       3,
-                "fmt_opt"       :       0,
+                # "fmt_opt"       :       0,
                 "gps_lat"       :       GPS_LAT,
                 "gps_lon"       :       GPS_LON,
                 "FAKE_GPS"      :       1,
-                "gps_fix"       :       1,
-                "gps_num"       :       100,
+                # "gps_fix"       :       1,
+                # "gps_num"       :       100,
                 "date"          :       "1900-01-01",
                 "time"          :       "00:00:00",
         }
