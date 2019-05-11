@@ -28,21 +28,10 @@ Please login you development board, and change to your working directory. Then, 
    ```
 
 2. Edit the file AnySense_config.py and change the configureations
-   * Sense_PM: Enable PM sensor (1) or Not (0)
-   * Sense_Tmp: Enable Temperature/Humidity sensor (1) or Not (0)
-   * Sense_Light: Enable Light sensor (1) or Not (0)
-   * Sense_Gas: Enable Gas sensor (1) or Not (0)
-   * Use_RTC_DS3231: Enable RTC (DS3231) (1) or Not (0)
-   ***
-   * import xxx as pm_sensor: Change xxx to the corresponding module (or leave it unchanged if you don't need a PM sensor)
-   * import xxx as tmp_sensor: Change xxx to the corresponding module (or leave it unchanged if you don't need a Temperature/Humidity sensor)
-   * import xxx as light_sensor: Change xxx to the corresponding module (or leave it unchanged if you don't need a light sensor)
-   * import xxx as gas_sensor: Change xxx to the corresponding module (or leave it unchanged if you don't need a gas sensor)
-   ***
    * GPS coordinates: including GPS_LAT and GPS_LON
-   * LASS settings: including APP_ID, DEVICE, and DEVICE_ID
-   * MQTT settings: including MQTT_broker, MQTT_port, MQTT_topic, and MQTT_interval
-   * Restful settings: including Restful_URL and Restful_interval
+   * Push Body settings: including APP_ID, Version and DEVICE_PREFIX
+   * MQTT settings: including MQTT_broker, MQTT_port and MQTT_topic
+
   
 3. Run the main program by
    ```

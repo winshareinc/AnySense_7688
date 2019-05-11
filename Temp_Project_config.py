@@ -5,13 +5,28 @@ import lib.gas_tvoc_sgp30 as TVOC_sensor
 import lib.gas_co2_s8 as gas_sensor
 import pyupm_i2clcd as upmLCD
 
-
-MQTT_broker = 'gpssensor.ddns.net'
-MQTT_port = 1883
-MQTT_topic = 'LASS/Test/PM25/live'
-MQTT_interval = 60
-
+#Push body
+APP_ID = "PM25"
 Version = "live"
+DEVICE_PREFIX = "FT_LIVE"
+
+#MQTT
+MQTT_broker = 'gpssensor.ddns.net'
+MQTT_topic = 'LASS/Test/PM25/live'
+MQTT_port = 1883
+
+#GPS
+GPS_LAT = 25.1933
+GPS_LON = 121.7870
+
+
+
+
+
+
+
+
+
 
 Sense_PM = 1
 Sense_Tmp = 1
@@ -21,9 +36,8 @@ Use_RTC_DS3231 = 1
 #for TVOC
 Sense_TVOC = 1
 
-GPS_LAT = 25.1933
-GPS_LON = 121.7870
-APP_ID = "PM25"
+
+
 DEVICE = "LinkIt_Smart_7688"
 DEVICE_ID = "DEVICE_ID1234"
 DEVICE_IP = ''
@@ -49,7 +63,7 @@ float_re_pattern = re.compile("^-?\d+\.\d+$")
 num_re_pattern = re.compile("^-?\d+\.\d+$|^-?\d+$")
 
 mac = open('/sys/class/net/eth0/address').readline().upper().strip()
-DEVICE_ID = "FT_LIVE" + mac.replace(':','')[:8]
+DEVICE_ID = DEVICE_PREFIX + mac.replace(':','')[:8]
 
 f = os.popen('ifconfig eth0 | grep "inet\ addr" | cut -d: -f2 | cut -d" " -f1')
 DEVICE_IP=f.read()
