@@ -27,7 +27,7 @@ Please login you development board, and change to your working directory. Then, 
    git clone https://github.com/winshareinc/AnySense_7688
    ```
 
-2. Edit the file AnySense_config.py and change the configureations
+2. Edit the file Temp_Project_config.py and change the configureations
    * GPS coordinates: including GPS_LAT and GPS_LON
    * Push Body settings: including APP_ID, Version and DEVICE_PREFIX
    * MQTT settings: including MQTT_broker, MQTT_port and MQTT_topic
@@ -40,9 +40,6 @@ Please login you development board, and change to your working directory. Then, 
 
 4. You can check the results on the console printouts or on the MQTT broker.
 
-## Applications
-
-The existing applications (so far) are listed on the [wiki](https://github.com/winshareinc/AnySense_7688/wiki) page
 
 ## Acknowledgement
 
