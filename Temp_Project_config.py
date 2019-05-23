@@ -11,7 +11,7 @@ Version = "live"
 DEVICE_PREFIX = "FT_LIVE"
 
 #MQTT
-MQTT_broker = 'gpssensor.ddns.net'
+MQTT_broker = '10.20.1.134'
 MQTT_topic = 'LASS/Test/PM25/live'
 MQTT_port = 1883
 
