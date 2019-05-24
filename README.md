@@ -32,13 +32,17 @@ Please login you development board, and change to your working directory. Then, 
    * Push Body settings: including APP_ID, Version and DEVICE_PREFIX
    * MQTT settings: including MQTT_broker, MQTT_port and MQTT_topic
 
-  
 3. Run the main program by
+    ```
+    pip install paho-mqtt
+    ```
+
+4. Run the main program by
    ```
    /root/AnySense_7688/APP/Temp_Project/setup.sh
    ```
 
-4. You can check the results on the console printouts or on the MQTT broker.
+5. You can check the results on the console printouts or on the MQTT broker.
 
 
 ## Acknowledgement
