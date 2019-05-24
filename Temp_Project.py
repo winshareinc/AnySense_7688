@@ -35,8 +35,8 @@ def upload_data():
 			tq = tq.replace('"','')
 			msg = msg + "|" + item + "=" + tq
 
-	restful_str = "wget -O /tmp/last_upload.log \"" + Conf.Restful_URL + "topic=" + Conf.APP_ID + "&device_id=" + Conf.DEVICE_ID + "&key=" + Conf.SecureKey + "&msg=" + msg + "\""
-	os.system(restful_str)
+	# restful_str = "wget -O /tmp/last_upload.log \"" + Conf.Restful_URL + "topic=" + Conf.APP_ID + "&device_id=" + Conf.DEVICE_ID + "&key=" + Conf.SecureKey + "&msg=" + msg + "\""
+	# os.system(restful_str)
 
 	#publish
 	push_items = ["ver_format","FAKE_GPS","app","ver_app","device_id","date","time","s_d0","s_d1","s_t0","s_h0","gps_lon","gps_lat"]
@@ -60,12 +60,12 @@ def upload_data():
 
 
 
-
-	try:
-		with open(Conf.FS_SD + "/" + values["date"] + ".txt", "a") as f:
-			f.write(msg + "\n")
-	except:
-		print "Error: writing to SD"
+    # 
+	# try:
+	# 	with open(Conf.FS_SD + "/" + values["date"] + ".txt", "a") as f:
+	# 		f.write(msg + "\n")
+	# except:
+	# 	print "Error: writing to SD"
 
 def display_data(disp):
 	global connection_flag
