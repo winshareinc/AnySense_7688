@@ -45,7 +45,7 @@ DEVICE_IP = ''
 Interval_LCD = 5
 
 Restful_URL = "https://data.lass-net.org/Upload/MAPS-secure.php?"
-Restful_interval = 60			# 60 seconds
+Restful_interval = 10			# 60 seconds
 
 SecureKey = "NoKey"
 
