@@ -30,11 +30,11 @@ GPS_LON = 121.7870
 
 Sense_PM = 1
 Sense_Tmp = 1
-Sense_Light = 1
-Sense_Gas = 1
-Use_RTC_DS3231 = 1
+Sense_Light = 0
+Sense_Gas = 0
+Use_RTC_DS3231 = 0
 #for TVOC
-Sense_TVOC = 1
+Sense_TVOC = 0
 
 
 
@@ -42,10 +42,10 @@ DEVICE = "LinkIt_Smart_7688"
 DEVICE_ID = "DEVICE_ID1234"
 DEVICE_IP = ''
 
-Interval_LCD = 5
+Interval_LCD = 30
 
 Restful_URL = "https://data.lass-net.org/Upload/MAPS-secure.php?"
-Restful_interval = 30			# 60 seconds
+Restful_interval = 60			# 60 seconds
 
 SecureKey = "NoKey"
 
