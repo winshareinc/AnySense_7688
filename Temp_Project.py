@@ -50,11 +50,11 @@ def upload_data():
                 tq = tq.replace('"','')
                 msg = msg + "|" + item + "=" + tq
     publish.single(Conf.MQTT_topic, msg, hostname=Conf.MQTT_broker, port = Conf.MQTT_port)
-    print "---###"
-    print msg
-    print "###"
-    print values
-    print "###---"
+    # print "---###"
+    # print msg
+    # print "###"
+    # print values
+    # print "###---"
     # msg = ""
     # for item in CSV_items:
     #     if item in values:
