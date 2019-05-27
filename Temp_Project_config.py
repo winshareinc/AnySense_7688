@@ -29,7 +29,7 @@ GPS_LON = 121.7870
 
 
 Sense_PM = 1
-Sense_Tmp = 1
+Sense_Tmp = 0
 Sense_Light = 0
 Sense_Gas = 0
 Use_RTC_DS3231 = 0
