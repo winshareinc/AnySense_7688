@@ -238,7 +238,7 @@ if __name__ == '__main__':
                 if item in fields:
                     values[fields[item]] = TVOC_data[item]
                     if Conf.float_re_pattern.match(str(values[fields[item]])):
-                values[fields[item]] = round(float(values[fields[item]]),2)
+                        values[fields[item]] = round(float(values[fields[item]]),2)
                 else:
                     values[item] = TVOC_data[item]
         display_data(disp)
