@@ -8,7 +8,7 @@ import pyupm_i2clcd as upmLCD
 #Push body
 APP_ID = "PM25"
 Version = "live"
-DEVICE_PREFIX = "FT_LIVE"
+# DEVICE_PREFIX = "FT_LIVE"
 
 #MQTT
 MQTT_broker = '10.20.1.134'
@@ -63,7 +63,7 @@ float_re_pattern = re.compile("^-?\d+\.\d+$")
 num_re_pattern = re.compile("^-?\d+\.\d+$|^-?\d+$")
 
 mac = open('/sys/class/net/eth0/address').readline().upper().strip()
-DEVICE_ID = DEVICE_PREFIX + mac.replace(':','')[:8]
+DEVICE_ID = mac.replace(':','')
 
 f = os.popen('ifconfig eth0 | grep "inet\ addr" | cut -d: -f2 | cut -d" " -f1')
 DEVICE_IP=f.read()
@@ -98,23 +98,23 @@ fields ={       "Tmp"   :       "s_t0",
                 "PM2.5" :       "s_d0",
                 "PM10"  :       "s_d1",
                 "Lux"   :       "s_l0",
-		"RGB_R"	:	"s_lr",
-		"RGB_G"	:	"s_lg",
-		"RGB_B"	:	"s_lb",
-		"RGB_C"	:	"s_lc",
+        		"RGB_R"	:	"s_lr",
+        		"RGB_G"	:	"s_lg",
+        		"RGB_B"	:	"s_lb",
+        		"RGB_C"	:	"s_lc",
                 "CO2"   :       "s_g8",
-		"TVOC"	:	"s_gg",
+		        "TVOC"	:	"s_gg",
         }
 values = {      "app"           :       APP_ID,
                 "device_id"     :       DEVICE_ID,
-                # "device"        :       DEVICE,
+                "device"        :       DEVICE,
                 "ver_format"    :       3,
-                # "fmt_opt"       :       0,
+                "fmt_opt"       :       0,
                 "gps_lat"       :       GPS_LAT,
                 "gps_lon"       :       GPS_LON,
                 "FAKE_GPS"      :       1,
-                # "gps_fix"       :       1,
-                # "gps_num"       :       100,
+                "gps_fix"       :       1,
+                "gps_num"       :       100,
                 "date"          :       "1900-01-01",
                 "time"          :       "00:00:00",
         }

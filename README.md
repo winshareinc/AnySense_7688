@@ -29,7 +29,7 @@ Please login you development board, and change to your working directory. Then, 
 
 2. Edit the file Temp_Project_config.py and change the configureations
    * GPS coordinates: including GPS_LAT and GPS_LON
-   * Push Body settings: including APP_ID, Version and DEVICE_PREFIX
+   * Push Body settings: including APP_ID, Version
    * MQTT settings: including MQTT_broker, MQTT_port and MQTT_topic
 
 3. Run the main program by

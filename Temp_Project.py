@@ -12,7 +12,7 @@ fields = Conf.fields
 values = Conf.values
 
 def upload_data():
-	CSV_items = ['device_id','date','time','s_t0','s_h0','s_d0','s_d1','s_d2','s_lr','s_lg','s_lb','s_lc', 's_l0', 's_g8','s_gg']
+	# CSV_items = ['device_id','date','time','s_t0','s_h0','s_d0','s_d1','s_d2','s_lr','s_lg','s_lb','s_lc', 's_l0', 's_g8','s_gg']
 	pairs = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S").split(" ")
 	values["device_id"] = Conf.DEVICE_ID
 	values["ver_app"] = Conf.Version
@@ -50,17 +50,21 @@ def upload_data():
 				tq = tq.replace('"','')
 				msg = msg + "|" + item + "=" + tq
 	publish.single(Conf.MQTT_topic, msg, hostname=Conf.MQTT_broker, port = Conf.MQTT_port)
+    print "---###"
+    print msg
+    print "###"
+    print values
+    print "###---"
+	# msg = ""
+	# for item in CSV_items:
+	# 	if item in values:
+	# 		msg = msg + str(values[item]) + '\t'
+	# 	else:
+	# 		msg = msg + "N/A" + '\t'
 
-	msg = ""
-	for item in CSV_items:
-		if item in values:
-			msg = msg + str(values[item]) + '\t'
-		else:
-			msg = msg + "N/A" + '\t'
 
 
-
-    # 
+    #
 	# try:
 	# 	with open(Conf.FS_SD + "/" + values["date"] + ".txt", "a") as f:
 	# 		f.write(msg + "\n")
