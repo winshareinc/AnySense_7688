@@ -42,7 +42,7 @@ DEVICE = "LinkIt_Smart_7688"
 DEVICE_ID = "DEVICE_ID1234"
 DEVICE_IP = ''
 
-Interval_LCD = 30
+Interval_LCD = 5
 
 Restful_URL = "https://data.lass-net.org/Upload/MAPS-secure.php?"
 Restful_interval = 60			# 60 seconds
