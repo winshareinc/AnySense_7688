@@ -1,4 +1,4 @@
-import lib.pm_g3 as pm_sensor
+import lib.pm_g5t as pm_sensor
 import lib.th_htu21d as tmp_sensor
 import lib.light_tcs34725 as light_sensor
 import lib.gas_tvoc_sgp30 as TVOC_sensor
