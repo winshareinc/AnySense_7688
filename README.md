@@ -25,6 +25,7 @@ Please login you development board, and change to your working directory. Then, 
 1. Use the coommand to get the latest version of the codes:
    ```
    git clone https://github.com/winshareinc/AnySense_7688
+   cp /root/AnySense_7688/Temp_Project_config_temp.py /root/AnySense_7688/Temp_Project_config.py
    ```
 
 2. Edit the file Temp_Project_config.py and change the configureations
